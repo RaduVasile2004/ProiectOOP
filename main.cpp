@@ -3,7 +3,7 @@
 
 int main() {
     std::cout << "Hello, world!\n";
-    std::array<int, 20222020> v{};
+    std::array<int, 20> v{};
     int nr;
     std::cout << "Introduceți nr: ";
     /////////////////////////////////////////////////////////////////////////
