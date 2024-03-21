@@ -100,6 +100,7 @@ utilizator& utilizator::operator=(const utilizator &rhs) {
         sex = rhs.sex;
         nume = rhs.nume;
     }
+    return *this;
 }
 
 [[maybe_unused]] int utilizator::getGreutate() const {
@@ -290,8 +291,7 @@ void MyFitnessPal::calcCaloriiZilnice() {
             caloriiZilnice = BMR * 0.8;
             break;
         case 3:
-            caloriiZilnice =
-                    BMR;
+            caloriiZilnice = BMR;
         default :
             cout << "Optiune invalida" << endl;
             break;
