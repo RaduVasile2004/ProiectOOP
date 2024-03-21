@@ -137,7 +137,18 @@ utilizator& utilizator::operator=(const utilizator &rhs) {
 
 
 
-MyFitnessPal :: ~MyFitnessPal()= default;
+MyFitnessPal :: ~MyFitnessPal(){
+    delete[] V;
+    nrAlimente = 0;
+    caloriiZilnice = 0;
+    caloriiRamaseDeMancat = 0;
+    nivelActivitate = 0;
+    user.varsta = 0;
+    user.sex.clear();
+    user.greutate = 0;
+    user.nume.clear();
+    user.inaltime = 0;
+} ///dezalocat v
 
 [[maybe_unused]] int MyFitnessPal::getNivelActivitate() const {
     return nivelActivitate;

@@ -90,7 +90,7 @@ private:
     float caloriiZilnice;
     float caloriiRamaseDeMancat;
     int nrAlimente;
-    aliment *V;
+    aliment *V;////de terminat <vector>
 public:
     friend class utilizator;
 
