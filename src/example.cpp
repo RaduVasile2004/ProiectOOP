@@ -292,6 +292,7 @@ void MyFitnessPal::calcCaloriiZilnice() {
             break;
         case 3:
             caloriiZilnice = BMR;
+            break;
         default :
             cout << "Optiune invalida" << endl;
             break;
