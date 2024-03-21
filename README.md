@@ -19,15 +19,15 @@ Nerespectarea duce la nepunctarea proiectului
 #### Cerințe
 - [ ] definirea a minim **2-3 clase** care sa interactioneze in cadrul temei alese (fie prin compunere, agregare sau doar sa apeleze metodele celeilalte intr-un mod logic) (5p)
   - pentru o clasă:
-    - [ ] constructori de inițializare
-    - [ ] constructor supraîncărcat
-    - [ ] constructori de copiere
-    - [ ] `operator=` de copiere
-    - [ ] destructor
-    - [ ] `operator<<` pentru afișare (std::ostream)
-    - [ ] `operator>>` pentru citire (std::istream)
-    - [ ] alt operator supraîncărcat ca funcție membră
-    - [ ] alt operator supraîncărcat ca funcție non-membră
+    - [x] constructori de inițializare
+    - [x] constructor supraîncărcat
+    - [x] constructori de copiere
+    - [x] `operator=` de copiere
+    - [x] destructor
+    - [x] `operator<<` pentru afișare (std::ostream)
+    - [X] `operator>>` pentru citire (std::istream)
+    - [x] alt operator supraîncărcat ca funcție membră
+    - [x] alt operator supraîncărcat ca funcție non-membră
   - pentru celelalte clase se va definii doar ce e nevoie
 - [ ] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe (3p)
 - nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector 

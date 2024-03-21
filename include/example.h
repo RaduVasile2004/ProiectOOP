@@ -1,4 +1,141 @@
 #ifndef OOP_EXAMPLE_H
 #define OOP_EXAMPLE_H
-int doSomething(int x);
+#include <string>
+#include <ostream>
+#include <vector>
+
+struct aliment{
+    std::string nume;
+    float calorii = 0;
+};
+
+class utilizator{
+private:
+    int varsta;
+    int inaltime;
+    int greutate;
+    std :: string nume;
+    std :: string sex;
+
+public:
+    friend class MyFitnessPal;
+    //constructori
+    [[maybe_unused]] utilizator(const int &varsta, const int &inaltime, const int &greutate, const std :: string &nume, const std :: string &sex);
+
+    utilizator(): varsta(0), inaltime(0), greutate(0){};
+
+    [[maybe_unused]] utilizator(utilizator &u);
+
+    //gettere
+    [[maybe_unused]] [[nodiscard]] int getVarsta() const;
+
+    [[maybe_unused]] [[nodiscard]] int getInaltime() const;
+
+    [[maybe_unused]] [[nodiscard]] const std::string &getNume() const;
+
+    [[maybe_unused]] [[nodiscard]] const std::string &getSex() const;
+
+    [[maybe_unused]] [[nodiscard]] int getGreutate() const;
+
+    //settere
+    [[maybe_unused]] void setVarsta(int varsta);
+
+    [[maybe_unused]] void setInaltime(int inaltime);
+
+    [[maybe_unused]] void setNume(const std::string &nume);
+
+    [[maybe_unused]] void setSex(const std::string &sex);
+
+    [[maybe_unused]] void setGreutate(int g);
+
+    //supraincarcare <<
+    friend std::ostream &operator<<(std::ostream &os, const utilizator &utilizator);
+
+    //supraincarcare >>
+    friend std::istream &operator>>(std :: istream& in, utilizator &utilizator){
+        std :: cout << "varsta= ";
+        in >> utilizator.varsta;
+        std :: cout << "inaltime= ";
+        in >> utilizator.inaltime;
+        std :: cout << "greutate= ";
+        in >> utilizator.greutate;
+        std :: cout << "nume= ";
+        in >> utilizator.nume;
+        std :: cout << "sex= ";
+        in >> utilizator.sex;
+        return in;
+    }
+
+    //supraincarcare == ca functie membra
+    bool operator==(const utilizator &rhs) const;
+
+    //supraincarcare != ca functie membra
+    friend bool operator!=(const utilizator &lhs, const utilizator &rhs);
+
+    //supraincarcare -- (reseteaza datele utilizatorului) ca functie non-membra
+    friend void operator--(utilizator &u);
+
+    //supraincarcare = ca operator de copiere
+    utilizator& operator=(const utilizator &rhs);
+
+    //destructor
+    ~utilizator();
+
+};
+
+class MyFitnessPal{
+private:
+    utilizator user;
+    int nivelActivitate;
+    float caloriiZilnice;
+    float caloriiRamaseDeMancat;
+    int nrAlimente;
+    aliment *V;
+public:
+    friend class utilizator;
+
+    //constructor
+    MyFitnessPal(): user(), nivelActivitate(0), caloriiZilnice(0), caloriiRamaseDeMancat(0), nrAlimente(0){V = new aliment[nrAlimente];};
+
+    //gettere
+    [[maybe_unused]] [[nodiscard]] int getNivelActivitate() const;
+
+    [[maybe_unused]] [[nodiscard]] float getCaloriiZilnice() const;
+
+    [[maybe_unused]] [[nodiscard]] const utilizator &getUser() const;
+
+    [[maybe_unused]] [[nodiscard]] float getCaloriiRamaseDeMancat() const;
+
+    //settere
+    [[maybe_unused]] void setNivelActivitate(int n);
+
+    [[maybe_unused]] void setCaloriiZilnice(float c);
+
+    [[maybe_unused]] void setUser(const utilizator &user);
+
+    [[maybe_unused]] void setCaloriiRamaseDeMancat(float cal);
+
+    //introducere utilizator
+    void introducereUtilizator();
+
+    //afisare utilizaror
+    void afisareUtilizator();
+
+    //ecran principal
+    void ecranPrincipal();
+
+    //calculator calorii
+    void calcCaloriiZilnice();
+
+    //introducere aliment
+    void introducereAliment();
+
+    //nr calorii ramase de mancat
+    void nrCaloriiRamase();
+
+    //destructor
+    ~MyFitnessPal();
+};
+
+
 #endif //OOP_EXAMPLE_H
