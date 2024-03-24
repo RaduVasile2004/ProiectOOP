@@ -94,13 +94,10 @@ private:
 
     [[maybe_unused]] void allocateMemory(int newSize) {
         auto *newV = new aliment[newSize];
-        // Copy existing elements if any
         for (int i = 0; i < nrAlimente; ++i) {
             newV[i] = V[i];
         }
-        // Deallocate previous memory if it exists
         delete[] V;
-        // Update V pointer
         V = newV;
     }
 
