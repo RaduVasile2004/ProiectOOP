@@ -154,7 +154,7 @@ MyFitnessPal :: ~MyFitnessPal(){
     return nivelActivitate;
 }
 
-[[maybe_unused]] float MyFitnessPal::getCaloriiZilnice() const {
+[[maybe_unused]] double MyFitnessPal::getCaloriiZilnice() const {
     return caloriiZilnice;
 }
 
@@ -184,75 +184,134 @@ void MyFitnessPal::afisareUtilizator() {
     MyFitnessPal::user = u;
 }
 
+//void MyFitnessPal::ecranPrincipal() {
+//    int optiune;
+//    //cout << "My Fitness Pal\nde Radu-Mihai Vasile\nAlegeti o optiune:\n";
+//    cout << "[1] Introducere utilizator\n";
+//    cout << "[2] Afisare utilizator\n";
+//    cout << "[3] Calculator calorii zilnice\n";
+//    cout << "[4] Introducere aliment consumat\n";
+//    cout << "[5] Numar de calorii ramase de mancat pentru azi\n";
+//    cout << "[6] Iesire\n";
+//    cin >> optiune;
+//    switch (optiune) {
+//        case 1:
+//            introducereUtilizator();
+//            cout << string(50, '\n');
+//            //ecranPrincipal();
+//            break;
+//        case 2:
+//            if (user.varsta == 0)
+//            {
+//                cout << "Nu ati introdus un utilizator!\n";
+//                //ecranPrincipal();
+//                break;
+//            }
+//
+//            afisareUtilizator();
+//            cout << "\n";
+//            //ecranPrincipal();
+//            break;
+//        case 3:
+//            if (user.varsta == 0)
+//            {
+//                cout << "Nu ati introdus un utilizator!\n";
+//                //ecranPrincipal();
+//                break;
+//            }
+//
+//            calcCaloriiZilnice();
+//            //ecranPrincipal();
+//            break;
+//        case 4:
+//            if (user.varsta == 0)
+//            {
+//                cout << "Nu ati introdus un utilizator!\n";
+//                //ecranPrincipal();
+//                break;
+//            }
+//
+//            introducereAliment();
+//            //ecranPrincipal();
+//            break;
+//        case 5:
+//            if (user.varsta == 0)
+//            {
+//                cout << "Nu ati introdus un utilizator!\n";
+//                //ecranPrincipal();
+//                break;
+//            }
+//
+//            nrCaloriiRamase();
+//            //ecranPrincipal();
+//            break;
+//        case 6:
+//            cout << string(50, '\n');
+//            break;
+//        default:
+//            cout << "Optiune invalida" << endl;
+//            break;
+//    }
+//
+//}
+
 void MyFitnessPal::ecranPrincipal() {
-    int optiune;
-    //cout << "My Fitness Pal\nde Radu-Mihai Vasile\nAlegeti o optiune:\n";
-    cout << "[1] Introducere utilizator\n";
-    cout << "[2] Afisare utilizator\n";
-    cout << "[3] Calculator calorii zilnice\n";
-    cout << "[4] Introducere aliment consumat\n";
-    cout << "[5] Numar de calorii ramase de mancat pentru azi\n";
-    cout << "[6] Iesire\n";
-    cin >> optiune;
-    switch (optiune) {
-        case 1:
-            introducereUtilizator();
-            cout << string(50, '\n');
-            ecranPrincipal();
-            break;
-        case 2:
-            if (user.varsta == 0)
-            {
-                cout << "Nu ati introdus un utilizator!\n";
-                ecranPrincipal();
-                break;
-            }
+    bool exitLoop = false;
+    while (!exitLoop) {
+        int optiune;
+        cout << "[1] Introducere utilizator\n";
+        cout << "[2] Afisare utilizator\n";
+        cout << "[3] Calculator calorii zilnice\n";
+        cout << "[4] Introducere aliment consumat\n";
+        cout << "[5] Numar de calorii ramase de mancat pentru azi\n";
+        cout << "[6] Iesire\n";
+        cin >> optiune;
 
-            afisareUtilizator();
-            cout << "\n";
-            ecranPrincipal();
-            break;
-        case 3:
-            if (user.varsta == 0)
-            {
-                cout << "Nu ati introdus un utilizator!\n";
-                ecranPrincipal();
+        switch (optiune) {
+            case 1:
+                introducereUtilizator();
+                cout << string(50, '\n');
                 break;
-            }
-
-            calcCaloriiZilnice();
-            ecranPrincipal();
-            break;
-        case 4:
-            if (user.varsta == 0)
-            {
-                cout << "Nu ati introdus un utilizator!\n";
-                ecranPrincipal();
+            case 2:
+                if (user.varsta == 0) {
+                    cout << "Nu ati introdus un utilizator!\n";
+                    break;
+                }
+                afisareUtilizator();
+                cout << "\n";
                 break;
-            }
-
-            introducereAliment();
-            ecranPrincipal();
-            break;
-        case 5:
-            if (user.varsta == 0)
-            {
-                cout << "Nu ati introdus un utilizator!\n";
-                ecranPrincipal();
+            case 3:
+                if (user.varsta == 0) {
+                    cout << "Nu ati introdus un utilizator!\n";
+                    break;
+                }
+                calcCaloriiZilnice();
                 break;
-            }
-
-            nrCaloriiRamase();
-            ecranPrincipal();
-            break;
-        case 6:
-            cout << string(50, '\n');
-            break;
-        default:
-            cout << "Optiune invalida" << endl;
-            break;
+            case 4:
+                if (user.varsta == 0) {
+                    cout << "Nu ati introdus un utilizator!\n";
+                    break;
+                }
+                introducereAliment();
+                break;
+            case 5:
+                if (user.varsta == 0) {
+                    cout << "Nu ati introdus un utilizator!\n";
+                    break;
+                }
+                nrCaloriiRamase();
+                break;
+            case 6:
+                cout << string(50, '\n');
+                exitLoop = true; // Set the flag to exit the loop
+                break;
+            default:
+                cout << "Optiune invalida" << endl;
+                break;
+        }
     }
 }
+
 
 void MyFitnessPal::calcCaloriiZilnice() {
     int optiune;
@@ -309,9 +368,10 @@ void MyFitnessPal::calcCaloriiZilnice() {
             break;
     }
     cout << "Trebuie sa mancati " << caloriiZilnice << " calorii zilnic\n";
+
 }
 
-[[maybe_unused]] float MyFitnessPal::getCaloriiRamaseDeMancat() const {
+[[maybe_unused]] double MyFitnessPal::getCaloriiRamaseDeMancat() const {
     return caloriiRamaseDeMancat;
 }
 
@@ -320,19 +380,30 @@ void MyFitnessPal::calcCaloriiZilnice() {
 }
 
 void MyFitnessPal::introducereAliment() {
+//    aliment a;
+//
+//    cout << "Introduceti numele alimentului consumat si numarul sau de calorii\n";
+//    cin >> a.nume;
+//    cin >> a.calorii;
+//    aliment *aux;
+//    aux = new aliment[nrAlimente + 1];
+//    for (int i = 0; i < nrAlimente; i++) {
+//        aux[i] = V[i];
+//    }
+//    aux[nrAlimente] = a;
+//    delete[] V;
+//    V = aux;
+//    nrAlimente++;
     aliment a;
-
     cout << "Introduceti numele alimentului consumat si numarul sau de calorii\n";
     cin >> a.nume;
     cin >> a.calorii;
-    aliment *aux;
-    aux = new aliment[nrAlimente + 1];
-    for (int i = 0; i < nrAlimente; i++) {
-        aux[i] = V[i];
-    }
-    aux[nrAlimente] = a;
-    delete[] V;
-    V = aux;
+
+    // Allocate memory for V with one extra slot
+    allocateMemory(nrAlimente + 1);
+
+    // Add the new aliment to the end of V
+    V[nrAlimente] = a;
     nrAlimente++;
 }
 
