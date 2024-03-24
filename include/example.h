@@ -24,7 +24,7 @@ public:
 
     utilizator(): varsta(0), inaltime(0), greutate(0){};
 
-    [[maybe_unused]] utilizator(utilizator &u);
+    [[maybe_unused]] utilizator(const utilizator &u);
 
     //gettere
     [[maybe_unused]] [[nodiscard]] int getVarsta() const;
@@ -98,13 +98,10 @@ public:
     MyFitnessPal(): user(), nivelActivitate(0), caloriiZilnice(0), caloriiRamaseDeMancat(0), nrAlimente(0){V = new aliment[nrAlimente];};
 
     //constructor prin copiere
-    MyFitnessPal(MyFitnessPal &a){
-        nivelActivitate = a.nivelActivitate;
-        caloriiZilnice = a.caloriiZilnice;
-        caloriiRamaseDeMancat = a.caloriiRamaseDeMancat;
-        nrAlimente = a.nrAlimente;
-        V = a.V;
-        user = a.user;
+    MyFitnessPal(const MyFitnessPal &a) : user(a.user), nivelActivitate(a.nivelActivitate), caloriiZilnice(a.caloriiZilnice), caloriiRamaseDeMancat(a.caloriiRamaseDeMancat), nrAlimente(a.nrAlimente), V(new aliment[a.nrAlimente]){
+        for (int i = 0; i < a.nrAlimente; ++i) {
+            V[i] = a.V[i];
+        }
     }
 
     //gettere

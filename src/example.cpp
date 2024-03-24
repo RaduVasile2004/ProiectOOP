@@ -13,7 +13,7 @@ using namespace std;
 }
 
 //constructor prin copiere
-[[maybe_unused]] utilizator::utilizator(utilizator &u) {
+[[maybe_unused]] utilizator::utilizator(const utilizator &u) {
     varsta = u.varsta;
     inaltime = u.inaltime;
     greutate = u.greutate;
