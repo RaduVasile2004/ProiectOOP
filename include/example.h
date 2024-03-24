@@ -90,12 +90,22 @@ private:
     float caloriiZilnice;
     float caloriiRamaseDeMancat;
     int nrAlimente;
-    aliment *V;////de terminat <vector>
+    aliment *V;
 public:
     friend class utilizator;
 
     //constructor
     MyFitnessPal(): user(), nivelActivitate(0), caloriiZilnice(0), caloriiRamaseDeMancat(0), nrAlimente(0){V = new aliment[nrAlimente];};
+
+    //constructor prin copiere
+    MyFitnessPal(MyFitnessPal &a){
+        nivelActivitate = a.nivelActivitate;
+        caloriiZilnice = a.caloriiZilnice;
+        caloriiRamaseDeMancat = a.caloriiRamaseDeMancat;
+        nrAlimente = a.nrAlimente;
+        V = a.V;
+        user = a.user;
+    }
 
     //gettere
     [[maybe_unused]] [[nodiscard]] int getNivelActivitate() const;
@@ -132,6 +142,20 @@ public:
 
     //nr calorii ramase de mancat
     void nrCaloriiRamase();
+
+    //supraincarcare =
+    MyFitnessPal& operator=(const MyFitnessPal &a) {
+        if(this != &a)
+        {
+            nivelActivitate = a.nivelActivitate;
+            caloriiZilnice = a.caloriiZilnice;
+            caloriiRamaseDeMancat = a.caloriiRamaseDeMancat;
+            nrAlimente = a.nrAlimente;
+            V = a.V;
+            user = a.user;
+        }
+        return *this;
+    }
 
     //destructor
     ~MyFitnessPal();
