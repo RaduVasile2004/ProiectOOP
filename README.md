@@ -1,4 +1,5 @@
-# Nu primesc notă pentru că nu am pus titlu și descriere
+# Clasa MyFitnessPal(calorie tracker)
+# Numara cate calorii a mancat un utilizator si ii recomanda cate ar mai trebui sa manance in ziua respectiva in functie de scopurile sale
 
 ## Cerințe obligatorii 
 
@@ -17,7 +18,7 @@ Nerespectarea duce la nepunctarea proiectului
 ## Tema 1
 
 #### Cerințe
-- [ ] definirea a minim **2-3 clase** care sa interactioneze in cadrul temei alese (fie prin compunere, agregare sau doar sa apeleze metodele celeilalte intr-un mod logic) (5p)
+- [x] definirea a minim **2-3 clase** care sa interactioneze in cadrul temei alese (fie prin compunere, agregare sau doar sa apeleze metodele celeilalte intr-un mod logic) (5p)
   - pentru o clasă:
     - [x] constructori de inițializare
     - [x] constructor supraîncărcat
@@ -29,12 +30,12 @@ Nerespectarea duce la nepunctarea proiectului
     - [x] alt operator supraîncărcat ca funcție membră
     - [x] alt operator supraîncărcat ca funcție non-membră
   - pentru celelalte clase se va definii doar ce e nevoie
-- [ ] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe (3p)
+- [x] implementarea a minim 3 funcții membru publice pentru funcționalități specifice temei alese, dintre care cel puțin 1-2 funcții mai complexe (3p)
 - nu doar citiri/afișări sau adăugat/șters elemente într-un/dintr-un vector 
-- [ ] scenariu de utilizare a claselor definite (1p):
+- [x] scenariu de utilizare a claselor definite (1p):
   - crearea de obiecte și apelarea tuturor funcțiilor membru publice în main
   - vor fi adăugate în fișierul `tastatura.txt` DOAR exemple de date de intrare de la tastatură (dacă există); dacă aveți nevoie de date din fișiere, creați alte fișiere separat
-- [ ] opțiune pentru citirea și afișarea a n obiecte (1p)
+- [x] opțiune pentru citirea și afișarea a n obiecte (1p)
 
 ## Recomandare Tema
 
