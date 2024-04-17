@@ -25,6 +25,8 @@ public:
     [[maybe_unused]] void setCalorii(float cal);
     [[maybe_unused]] void setNume(const std::string &nume) override;
 
+    [[nodiscard]] bool sanatateAliment() const;
+
     friend std::istream &operator>>(std :: istream& in, aliment &aliment) {
         std :: cout << "nume= ";
         in >> aliment.nume;
@@ -35,6 +37,7 @@ public:
     }
     friend std::ostream &operator<<(std::ostream &os, const aliment &aliment);
 
+    void afisareDetalii() const override;
 
     ~aliment() override = default;
 };

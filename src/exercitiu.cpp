@@ -22,3 +22,7 @@ std::ostream &operator<<(std::ostream &os, const exercitiu &exercitiu) {
     return os;
 }
 
+void exercitiu::afisareDetalii() const {
+    std::cout << "Nume: " << nume << "\n";
+    std::cout << "Calorii arse: " << caloriiArse << "\n";
+}

@@ -93,3 +93,11 @@ utilizator& utilizator::operator=(const utilizator &rhs) {
 [[maybe_unused]] void utilizator::setGreutate(int g) {
     utilizator::greutate = g;
 }
+
+void utilizator::afisareDetalii() const {
+    std::cout << "Nume: " << nume << "\n";
+    std::cout << "Varsta: " << varsta << "\n";
+    std::cout << "Inaltime: " << inaltime << "\n";
+    std::cout << "Greutate: " << greutate << "\n";
+    std::cout << "Sex: " << sex << "\n";
+}

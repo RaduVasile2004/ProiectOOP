@@ -26,6 +26,8 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const entitate &entitate);
 
+    [[maybe_unused]] virtual void afisareDetalii() const = 0;
+
     // Destructor virtual
     virtual ~entitate() = default;
 };

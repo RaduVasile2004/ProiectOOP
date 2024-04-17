@@ -3,10 +3,11 @@
 #include "MyFitnessPal.h"
 #include "utilizator.h"
 #include "aliment.h"
+#include "exercitiu.h"
 using namespace std;
 
 MyFitnessPal :: ~MyFitnessPal(){
-    delete[] V;
+//    delete[] V;
     nrAlimente = 0;
     caloriiZilnice = 0;
     caloriiRamaseDeMancat = 0;
@@ -46,7 +47,7 @@ void MyFitnessPal::afisareUtilizator() {
     return user;
 }
 
-[[maybe_unused]] void MyFitnessPal::setUser(const utilizator &u) {
+[[maybe_unused]] void MyFitnessPal::setUser([[maybe_unused]] const utilizator &u) {
     MyFitnessPal::user = u;
 }
 
@@ -60,7 +61,9 @@ void MyFitnessPal::ecranPrincipal() {
         cout << "[3] Calculator calorii zilnice\n";
         cout << "[4] Introducere aliment consumat\n";
         cout << "[5] Numar de calorii ramase de mancat pentru azi\n";
-        cout << "[6] Iesire\n";
+        cout << "[6] Introducere exercitiu\n";
+        cout << "[7] Afisare statistici\n";
+        cout << "[8] Iesire\n";
         cin >> optiune;
 
         switch (optiune) {
@@ -98,6 +101,12 @@ void MyFitnessPal::ecranPrincipal() {
                 nrCaloriiRamase();
                 break;
             case 6:
+                introducereExercitiu();
+                break;
+            case 7:
+                afisareDetaliiEntitati();
+                break;
+            case 8:
                 cout << string(50, '\n');
                 exitLoop = true; // Set the flag to exit the loop
                 break;
@@ -180,18 +189,60 @@ void MyFitnessPal::introducereAliment() {
     cout << "Introduceti numele alimentului consumat si numarul sau de calorii\n";
     cin >> a;
 
-    allocateMemory(nrAlimente + 1);
-
-    V[nrAlimente] = a;
+//    allocateMemory(nrAlimente + 1);
+//
+//    V[nrAlimente] = a;
+    bool sanatos = a.sanatateAliment();
+    if(sanatos)
+        cout << "Felicitari pentru alegere!\n";
+    else
+        cout << "Aveti grija, alimentul e cam nesanatos!\n";
+    V.push_back(a);
     nrAlimente++;
 }
 
 void MyFitnessPal::nrCaloriiRamase() {
     float calMancate = 0;
+    float calArse = 0;
     for (int i = 0; i < nrAlimente; i++)
         calMancate += V[i].getCalorii();
-    caloriiRamaseDeMancat = caloriiZilnice - calMancate;
+    for (int i = 0; i < nrExercitii; i++)
+        calArse += E[i].getCaloriiArse();
+    caloriiRamaseDeMancat = caloriiZilnice - calMancate + calArse;
     cout << "Mai trebuie sa mancati " << caloriiRamaseDeMancat << " calorii azi\n";
+}
+
+void MyFitnessPal::introducereExercitiu() {
+    exercitiu e;
+    cin >> e;
+    E.push_back(e);
+    nrExercitii++;
+}
+
+[[maybe_unused]] int MyFitnessPal::getNrExercitii() const {
+    return nrExercitii;
+}
+
+[[maybe_unused]] void MyFitnessPal::setNrExercitii(int nr) {
+    MyFitnessPal::nrExercitii = nr;
+}
+
+void MyFitnessPal::afisareDetaliiEntitati() const {
+    cout << "Detalii utilizator:\n";
+    const entitate* entitateUtilizator = &user;
+    entitateUtilizator->afisareDetalii();
+
+    cout << "Alimente consumate:\n";
+    for (const auto& aliment : V) {
+        const entitate* entitateAliment = &aliment;
+        entitateAliment->afisareDetalii();
+    }
+
+    cout << "Exercitii efectuate:\n";
+    for (const auto& exercitiu : E) {
+        const entitate* entitateExercitiu = &exercitiu;
+        entitateExercitiu->afisareDetalii();
+    }
 }
 
 

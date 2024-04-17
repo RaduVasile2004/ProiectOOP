@@ -75,6 +75,8 @@ public:
     //supraincarcare = ca operator de copiere
     utilizator& operator=(const utilizator &rhs);
 
+    void afisareDetalii() const override;
+
     //destructor
     ~utilizator() override = default;
 

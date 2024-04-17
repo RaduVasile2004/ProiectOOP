@@ -34,6 +34,8 @@ public:
         return in;
     }
 
+    void afisareDetalii() const override;
+
     ~exercitiu() override = default;
 };
 #endif //OOP_exercitiu_H
