@@ -1,120 +1,9 @@
 #include <iostream>
 #include <string>
-#include "example.h"
+#include "MyFitnessPal.h"
+#include "utilizator.h"
+#include "aliment.h"
 using namespace std;
-
-//constructor cu parametri
-[[maybe_unused]] utilizator ::utilizator(const int &varsta, const int &inaltime, const int &greutate, const std::string &nume, const std::string &sex) {
-    this -> varsta = varsta;
-    this -> inaltime = inaltime;
-    this -> greutate = greutate;
-    this -> nume = nume;
-    this -> sex = sex;
-}
-
-//constructor prin copiere
-[[maybe_unused]] utilizator::utilizator(const utilizator &u) {
-    varsta = u.varsta;
-    inaltime = u.inaltime;
-    greutate = u.greutate;
-    sex = u.sex;
-    nume = u.nume;
-}
-
-//destructor
-utilizator ::~utilizator() {
-    varsta = 0;
-    inaltime = 0;
-    greutate = 0;
-    nume.clear();
-    sex.clear();
-}
-
-//settere
-[[maybe_unused]] void utilizator::setVarsta(int v) {
-    utilizator::varsta = v;
-}
-
-[[maybe_unused]] void utilizator::setInaltime(int i) {
-    utilizator::inaltime = i;
-}
-
-[[maybe_unused]] void utilizator::setNume(const std::string &n) {
-    utilizator::nume = n;
-}
-
-[[maybe_unused]] void utilizator::setSex(const std::string &s) {
-    utilizator::sex = s;
-}
-
-//gettere
-[[maybe_unused]] int utilizator::getVarsta() const {
-    return varsta;
-}
-
-[[maybe_unused]] int utilizator::getInaltime() const {
-    return inaltime;
-}
-
-[[maybe_unused]] const std::string &utilizator::getNume() const {
-    return nume;
-}
-
-[[maybe_unused]] const std::string &utilizator::getSex() const {
-    return sex;
-}
-
-ostream &operator<<(ostream &os, const utilizator &utilizator) {
-    os << "varsta: " << utilizator.varsta << " inaltime: " << utilizator.inaltime << " greutate: " << utilizator.greutate << " nume: " << utilizator.nume
-       << " sex: " << utilizator.sex;
-    return os;
-}
-
-bool utilizator::operator==(const utilizator &rhs) const {
-    return varsta == rhs.varsta &&
-           inaltime == rhs.inaltime &&
-           greutate == rhs.greutate &&
-           nume == rhs.nume &&
-           sex == rhs.sex;
-}
-
-void operator--(utilizator &u) {
-    u.varsta = 0;
-    u.inaltime = 0;
-    u.greutate = 0;
-    u.nume.clear();
-    u.sex.clear();
-}
-
-bool operator!=(const utilizator &lhs, const utilizator &rhs) {
-    return !(rhs == lhs);
-}
-
-//supraincarcare =
-utilizator& utilizator::operator=(const utilizator &rhs) {
-    if(this != &rhs)
-    {
-        varsta = rhs.varsta;
-        inaltime = rhs.varsta;
-        greutate = rhs.greutate;
-        sex = rhs.sex;
-        nume = rhs.nume;
-    }
-    return *this;
-}
-
-[[maybe_unused]] int utilizator::getGreutate() const {
-    return greutate;
-}
-
-[[maybe_unused]] void utilizator::setGreutate(int g) {
-    utilizator::greutate = g;
-}
-
-
-
-
-
 
 MyFitnessPal :: ~MyFitnessPal(){
     delete[] V;
@@ -289,8 +178,7 @@ void MyFitnessPal::calcCaloriiZilnice() {
 void MyFitnessPal::introducereAliment() {
     aliment a;
     cout << "Introduceti numele alimentului consumat si numarul sau de calorii\n";
-    cin >> a.nume;
-    cin >> a.calorii;
+    cin >> a;
 
     allocateMemory(nrAlimente + 1);
 
@@ -301,7 +189,7 @@ void MyFitnessPal::introducereAliment() {
 void MyFitnessPal::nrCaloriiRamase() {
     float calMancate = 0;
     for (int i = 0; i < nrAlimente; i++)
-        calMancate += V[i].calorii;
+        calMancate += V[i].getCalorii();
     caloriiRamaseDeMancat = caloriiZilnice - calMancate;
     cout << "Mai trebuie sa mancati " << caloriiRamaseDeMancat << " calorii azi\n";
 }

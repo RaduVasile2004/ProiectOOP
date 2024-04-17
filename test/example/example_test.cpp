@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "example.h"
+#include "MyFitnessPal.h"
 
 TEST(SuiteName, TestName1) {
     utilizator u1;

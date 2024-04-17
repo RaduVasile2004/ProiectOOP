@@ -1,5 +1,4 @@
-#include <iostream>
-#include "example.h"
+#include "MyFitnessPal.h"
 
 int main() {
     MyFitnessPal aplicatie;
