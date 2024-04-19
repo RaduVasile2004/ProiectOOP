@@ -47,26 +47,26 @@ public:
     }
 
     //gettere
-    [[maybe_unused]] [[nodiscard]] int getNivelActivitate() const;
-
-    [[maybe_unused]] [[nodiscard]] int getNrExercitii() const;
-
-    [[maybe_unused]] void setNrExercitii(int nrExercitii);
-
-    [[maybe_unused]] [[nodiscard]] double getCaloriiZilnice() const;
-
-    [[maybe_unused]] [[nodiscard]] const utilizator &getUser() const;
-
-    [[maybe_unused]] [[nodiscard]] double getCaloriiRamaseDeMancat() const;
+//    [[maybe_unused]] [[nodiscard]] int getNivelActivitate() const;
+//
+//    [[maybe_unused]] [[nodiscard]] int getNrExercitii() const;
+//
+//    [[maybe_unused]] void setNrExercitii(int nrExercitii);
+//
+//    [[maybe_unused]] [[nodiscard]] double getCaloriiZilnice() const;
+//
+//    [[maybe_unused]] [[nodiscard]] const utilizator &getUser() const;
+//
+//    [[maybe_unused]] [[nodiscard]] double getCaloriiRamaseDeMancat() const;
 
     //settere
-    [[maybe_unused]] void setNivelActivitate(int n);
-
-    [[maybe_unused]] void setCaloriiZilnice(float c);
-
-    [[maybe_unused]] void setUser([[maybe_unused]] const utilizator &user);
-
-    [[maybe_unused]] void setCaloriiRamaseDeMancat(float cal);
+//    [[maybe_unused]] void setNivelActivitate(int n);
+//
+//    [[maybe_unused]] void setCaloriiZilnice(float c);
+//
+//    [[maybe_unused]] void setUser([[maybe_unused]] const utilizator &user);
+//
+//    [[maybe_unused]] void setCaloriiRamaseDeMancat(float cal);
 
     //introducere utilizator
     void introducereUtilizator();

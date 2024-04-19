@@ -14,38 +14,38 @@ using namespace std;
 
 
 //settere
-[[maybe_unused]] void utilizator::setVarsta(int v) {
-    utilizator::varsta = v;
-}
-
-[[maybe_unused]] void utilizator::setInaltime(int i) {
-    utilizator::inaltime = i;
-}
+//[[maybe_unused]] void utilizator::setVarsta(int v) {
+//    utilizator::varsta = v;
+//}
+//
+//[[maybe_unused]] void utilizator::setInaltime(int i) {
+//    utilizator::inaltime = i;
+//}
 
 [[maybe_unused]] void utilizator::setNume(const std::string &n) {
     utilizator::nume = n;
 }
-
-[[maybe_unused]] void utilizator::setSex(const std::string &s) {
-    utilizator::sex = s;
-}
-
-//gettere
-[[maybe_unused]] int utilizator::getVarsta() const {
-    return varsta;
-}
-
-[[maybe_unused]] int utilizator::getInaltime() const {
-    return inaltime;
-}
+//
+//[[maybe_unused]] void utilizator::setSex(const std::string &s) {
+//    utilizator::sex = s;
+//}
+//
+////gettere
+//[[maybe_unused]] int utilizator::getVarsta() const {
+//    return varsta;
+//}
+//
+//[[maybe_unused]] int utilizator::getInaltime() const {
+//    return inaltime;
+//}
 
 [[maybe_unused]] const std::string &utilizator::getNume() const {
     return nume;
 }
 
-[[maybe_unused]] const std::string &utilizator::getSex() const {
-    return sex;
-}
+//[[maybe_unused]] const std::string &utilizator::getSex() const {
+//    return sex;
+//}
 
 ostream &operator<<(ostream &os, const utilizator &utilizator) {
     os << "varsta: " << utilizator.varsta << " inaltime: " << utilizator.inaltime << " greutate: " << utilizator.greutate << " nume: " << utilizator.nume
@@ -86,13 +86,13 @@ utilizator& utilizator::operator=(const utilizator &rhs) {
     return *this;
 }
 
-[[maybe_unused]] int utilizator::getGreutate() const {
-    return greutate;
-}
-
-[[maybe_unused]] void utilizator::setGreutate(int g) {
-    utilizator::greutate = g;
-}
+//[[maybe_unused]] int utilizator::getGreutate() const {
+//    return greutate;
+//}
+//
+//[[maybe_unused]] void utilizator::setGreutate(int g) {
+//    utilizator::greutate = g;
+//}
 
 void utilizator::afisareDetalii() const {
     std::cout << "Nume: " << nume << "\n";

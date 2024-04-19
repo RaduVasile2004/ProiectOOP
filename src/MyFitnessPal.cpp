@@ -19,22 +19,22 @@ MyFitnessPal :: ~MyFitnessPal(){
     user.nume.clear();
     user.inaltime = 0;
 }
-
-[[maybe_unused]] int MyFitnessPal::getNivelActivitate() const {
-    return nivelActivitate;
-}
-
-[[maybe_unused]] double MyFitnessPal::getCaloriiZilnice() const {
-    return caloriiZilnice;
-}
-
-[[maybe_unused]] void MyFitnessPal::setNivelActivitate(int n) {
-    MyFitnessPal::nivelActivitate = n;
-}
-
-[[maybe_unused]] void MyFitnessPal::setCaloriiZilnice(float c) {
-    MyFitnessPal::caloriiZilnice = c;
-}
+//
+//[[maybe_unused]] int MyFitnessPal::getNivelActivitate() const {
+//    return nivelActivitate;
+//}
+//
+//[[maybe_unused]] double MyFitnessPal::getCaloriiZilnice() const {
+//    return caloriiZilnice;
+//}
+//
+//[[maybe_unused]] void MyFitnessPal::setNivelActivitate(int n) {
+//    MyFitnessPal::nivelActivitate = n;
+//}
+//
+//[[maybe_unused]] void MyFitnessPal::setCaloriiZilnice(float c) {
+//    MyFitnessPal::caloriiZilnice = c;
+//}
 
 void MyFitnessPal::introducereUtilizator() {
     cin >> user;
@@ -43,14 +43,14 @@ void MyFitnessPal::introducereUtilizator() {
 void MyFitnessPal::afisareUtilizator() {
     cout << user;
 }
-
-[[maybe_unused]] const utilizator &MyFitnessPal::getUser() const {
-    return user;
-}
-
-[[maybe_unused]] void MyFitnessPal::setUser([[maybe_unused]] const utilizator &u) {
-    MyFitnessPal::user = u;
-}
+//
+//[[maybe_unused]] const utilizator &MyFitnessPal::getUser() const {
+//    return user;
+//}
+//
+//[[maybe_unused]] void MyFitnessPal::setUser([[maybe_unused]] const utilizator &u) {
+//    MyFitnessPal::user = u;
+//}
 
 
 void MyFitnessPal::ecranPrincipal() {
@@ -177,13 +177,13 @@ void MyFitnessPal::calcCaloriiZilnice() {
 
 }
 
-[[maybe_unused]] [[gnu::unused]] double MyFitnessPal::getCaloriiRamaseDeMancat() const {
-    return caloriiRamaseDeMancat;
-}
-
-[[maybe_unused]] void MyFitnessPal::setCaloriiRamaseDeMancat(float cal) {
-    MyFitnessPal::caloriiRamaseDeMancat = cal;
-}
+//[[maybe_unused]] double MyFitnessPal::getCaloriiRamaseDeMancat() const {
+//    return caloriiRamaseDeMancat;
+//}
+//
+//[[maybe_unused]] void MyFitnessPal::setCaloriiRamaseDeMancat(float cal) {
+//    MyFitnessPal::caloriiRamaseDeMancat = cal;
+//}
 
 void MyFitnessPal::introducereAliment() {
 //    aliment a;
@@ -266,13 +266,13 @@ void MyFitnessPal::introducereExercitiu() {
     }
 }
 
-[[maybe_unused]] int MyFitnessPal::getNrExercitii() const {
-    return nrExercitii;
-}
-
-[[maybe_unused]] void MyFitnessPal::setNrExercitii(int nr) {
-    MyFitnessPal::nrExercitii = nr;
-}
+//[[maybe_unused]] int MyFitnessPal::getNrExercitii() const {
+//    return nrExercitii;
+//}
+//
+//[[maybe_unused]] void MyFitnessPal::setNrExercitii(int nr) {
+//    MyFitnessPal::nrExercitii = nr;
+//}
 
 void MyFitnessPal::afisareDetaliiEntitati() const {
     cout << "Detalii utilizator:\n";
