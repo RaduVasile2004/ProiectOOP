@@ -22,7 +22,7 @@ public:
     [[maybe_unused]] [[nodiscard]] const std::string &getNume() const override;
 
     [[maybe_unused]] [[maybe_unused]] void setCaloriiArse(float cal);
-    [[maybe_unused]] void setNume(const std::string &nume) override;
+    [[maybe_unused]] void setNume(const std::string &n) override;
 
     friend std::ostream &operator<<(std::ostream &os, const exercitiu &exercitiu);
     friend std::istream &operator>>(std :: istream& in, exercitiu &exercitiu) {

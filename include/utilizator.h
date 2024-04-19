@@ -21,7 +21,7 @@ public:
 
     utilizator(): entitate(), varsta(0), inaltime(0), greutate(0), sex() {}
 
-    [[maybe_unused]] utilizator(const utilizator &u);
+    [[maybe_unused]] utilizator(const utilizator &u) = default;
 
     //gettere
     [[maybe_unused]] [[nodiscard]] int getVarsta() const;

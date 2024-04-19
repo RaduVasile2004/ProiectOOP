@@ -96,6 +96,8 @@ public:
             nrAlimente = a.nrAlimente;
             V = a.V;
             user = a.user;
+            nrExercitii = a.nrExercitii;
+            E = a.E;
         }
         return *this;
     }

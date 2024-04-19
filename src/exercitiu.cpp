@@ -13,8 +13,8 @@ const std::string &exercitiu::getNume() const {
     caloriiArse = cal;
 }
 
-void exercitiu::setNume(const std::string &nume) {
-    entitate::setNume(nume);
+void exercitiu::setNume(const std::string &n) {
+    entitate::setNume(n);
 }
 
 std::ostream &operator<<(std::ostream &os, const exercitiu &exercitiu) {

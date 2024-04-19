@@ -140,15 +140,15 @@ void MyFitnessPal::calcCaloriiZilnice() {
         BMR = BMR * 1.2;
     } // sedentar
 
-    else if (nivelActivitate >= 2 && nivelActivitate < 4) // putin activ
+    else if (nivelActivitate < 4) // putin activ
     {
         BMR = BMR * 1.375;
     }
-    else if (nivelActivitate >= 4 && nivelActivitate < 7) // activ
+    else if (nivelActivitate < 7) // activ
     {
         BMR = BMR * 1.55;
     }
-    else if (nivelActivitate >= 7 && nivelActivitate < 9) // foarte activ
+    else if (nivelActivitate < 9) // foarte activ
     {
         BMR = BMR * 1.725;
     }
@@ -177,7 +177,7 @@ void MyFitnessPal::calcCaloriiZilnice() {
 
 }
 
-[[maybe_unused]] double MyFitnessPal::getCaloriiRamaseDeMancat() const {
+[[maybe_unused]] [[gnu::unused]] double MyFitnessPal::getCaloriiRamaseDeMancat() const {
     return caloriiRamaseDeMancat;
 }
 

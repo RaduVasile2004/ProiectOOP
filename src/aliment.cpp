@@ -12,8 +12,8 @@ const std::string &aliment::getNume() const {
     return entitate::getNume();
 }
 
-void aliment::setNume(const std::string &nume) {
-    entitate::setNume(nume);
+void aliment::setNume(const std::string &n) {
+    entitate::setNume(n);
 }
 
 std::ostream &operator<<(std::ostream &os, const aliment &aliment) {

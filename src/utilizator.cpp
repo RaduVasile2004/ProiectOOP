@@ -3,13 +3,13 @@
 using namespace std;
 
 //constructor prin copiere
-[[maybe_unused]] utilizator::utilizator(const utilizator &u)  : entitate(u) {
-    varsta = u.varsta;
-    inaltime = u.inaltime;
-    greutate = u.greutate;
-    sex = u.sex;
-    nume = u.nume;
-}
+//[[maybe_unused]] utilizator::utilizator(const utilizator &u)  : entitate(u) {
+//    varsta = u.varsta;
+//    inaltime = u.inaltime;
+//    greutate = u.greutate;
+//    sex = u.sex;
+//    nume = u.nume;
+//}
 
 
 
