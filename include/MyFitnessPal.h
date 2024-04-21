@@ -15,20 +15,10 @@ private:
     double caloriiRamaseDeMancat;
     int nrAlimente;
     int nrExercitii;
-    //aliment *V;
     std::vector<aliment> V;
     std::vector<exercitiu> E;
 
     static const int DEFAULT_SIZE = 0;
-
-//    [[maybe_unused]] void allocateMemory(int newSize) {
-//        auto *newV = new aliment[newSize];
-//        for (int i = 0; i < nrAlimente; ++i) {
-//            newV[i] = V[i];
-//        }
-//        delete[] V;
-//        V = newV;
-//    }
 
 public:
     friend class utilizator;
@@ -45,28 +35,6 @@ public:
             E[i] = a.E[i];
         }
     }
-
-    //gettere
-//    [[maybe_unused]] [[nodiscard]] int getNivelActivitate() const;
-//
-//    [[maybe_unused]] [[nodiscard]] int getNrExercitii() const;
-//
-//    [[maybe_unused]] void setNrExercitii(int nrExercitii);
-//
-//    [[maybe_unused]] [[nodiscard]] double getCaloriiZilnice() const;
-//
-//    [[maybe_unused]] [[nodiscard]] const utilizator &getUser() const;
-//
-//    [[maybe_unused]] [[nodiscard]] double getCaloriiRamaseDeMancat() const;
-
-    //settere
-//    [[maybe_unused]] void setNivelActivitate(int n);
-//
-//    [[maybe_unused]] void setCaloriiZilnice(float c);
-//
-//    [[maybe_unused]] void setUser([[maybe_unused]] const utilizator &user);
-//
-//    [[maybe_unused]] void setCaloriiRamaseDeMancat(float cal);
 
     //introducere utilizator
     void introducereUtilizator();

@@ -21,7 +21,6 @@ public:
     [[maybe_unused]] [[maybe_unused]] [[nodiscard]] float getCaloriiArse() const;
     [[maybe_unused]] [[nodiscard]] const std::string &getNume() const override;
 
-//    [[maybe_unused]] [[maybe_unused]] void setCaloriiArse(float cal);
     [[maybe_unused]] void setNume(const std::string &n) override;
 
     friend std::ostream &operator<<(std::ostream &os, const exercitiu &exercitiu);

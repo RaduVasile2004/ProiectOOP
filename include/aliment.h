@@ -22,7 +22,6 @@ public:
     [[maybe_unused]] [[nodiscard]] float getCalorii() const;
     [[maybe_unused]] [[nodiscard]] const std::string &getNume() const override;
 
-//    [[maybe_unused]] void setCalorii(float cal);
     [[maybe_unused]] void setNume(const std::string &n) override;
 
     [[nodiscard]] bool sanatateAliment() const;

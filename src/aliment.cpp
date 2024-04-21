@@ -4,10 +4,6 @@
     return calorii;
 }
 
-//[[maybe_unused]] void aliment::setCalorii(float cal) {
-//    aliment::calorii = cal;
-//}
-
 const std::string &aliment::getNume() const {
     return entitate::getNume();
 }

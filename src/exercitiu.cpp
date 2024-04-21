@@ -9,10 +9,6 @@ const std::string &exercitiu::getNume() const {
     return entitate::getNume();
 }
 
-//[[maybe_unused]] void exercitiu::setCaloriiArse(float cal) {
-//    caloriiArse = cal;
-//}
-
 void exercitiu::setNume(const std::string &n) {
     entitate::setNume(n);
 }

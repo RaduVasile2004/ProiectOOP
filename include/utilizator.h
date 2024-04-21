@@ -23,27 +23,9 @@ public:
 
     [[maybe_unused]] utilizator(const utilizator &u) = default;
 
-    //gettere
-//    [[maybe_unused]] [[nodiscard]] int getVarsta() const;
-//
-//    [[maybe_unused]] [[nodiscard]] int getInaltime() const;
-
     [[maybe_unused]] [[nodiscard]] const std::string &getNume() const override;
 
-//    [[maybe_unused]] [[nodiscard]] const std::string &getSex() const;
-//
-//    [[maybe_unused]] [[nodiscard]] int getGreutate() const;
-
-    //settere
-//    [[maybe_unused]] void setVarsta(int varsta);
-//
-//    [[maybe_unused]] void setInaltime(int inaltime);
-
     [[maybe_unused]] void setNume(const std::string &nume) override;
-
-//    [[maybe_unused]] void setSex(const std::string &sex);
-//
-//    [[maybe_unused]] void setGreutate(int g);
 
     //supraincarcare <<
     friend std::ostream &operator<<(std::ostream &os, const utilizator &utilizator);
