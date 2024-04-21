@@ -186,28 +186,14 @@ void MyFitnessPal::calcCaloriiZilnice() {
 //}
 
 void MyFitnessPal::introducereAliment() {
-//    aliment a;
-//    cout << "Introduceti numele alimentului consumat si numarul sau de calorii\n";
-//    cin >> a;
-//
-//    bool sanatos = a.sanatateAliment();
-//    if(sanatos)
-//        cout << "Felicitari pentru alegere!\n";
-//    else
-//        cout << "Aveti grija, alimentul e cam nesanatos!\n";
-//    V.push_back(a);
-//    nrAlimente++;
     try {
         aliment a;
         cout << "Introduceti numele alimentului consumat si numarul sau de calorii\n";
         cin >> a;
 
-        // Verificăm dacă numele alimentului este gol
         if (a.getNume().empty()) {
             throw invalid_argument("Numele alimentului nu poate fi gol!");
         }
-
-        // Verificăm dacă numărul de calorii este negativ
         if (a.getCalorii() < 0) {
             throw invalid_argument("Numarul de calorii nu poate fi negativ!");
         }
@@ -220,8 +206,6 @@ void MyFitnessPal::introducereAliment() {
         V.push_back(a);
         nrAlimente++;
     } catch (const invalid_argument &e) {
-        // Prindem excepțiile de tip invalid_argument (sau orice alt tip derivat din std::exception)
-        // Putem face upcasting la std::exception pentru a afișa mesajul de eroare generic
         std::cout << "Eroare: " << e.what() << endl;
     }
 }
@@ -238,21 +222,14 @@ void MyFitnessPal::nrCaloriiRamase() {
 }
 
 void MyFitnessPal::introducereExercitiu() {
-//    exercitiu e;
-//    cin >> e;
-//    E.push_back(e);
-//    nrExercitii++;
     try {
         exercitiu e;
-        cout << "Introduceti numele exercitiul efectuat si numarul de calorii arse\n";
+        cout << "Introduceti numele exercitiului efectuat si numarul de calorii arse\n";
         cin >> e;
 
-        // Verificăm dacă numele alimentului este gol
         if (e.getNume().empty()) {
             throw invalid_argument("Numele exercitiului nu poate fi gol!");
         }
-
-        // Verificăm dacă numărul de calorii este negativ
         if (e.getCaloriiArse() < 0) {
             throw invalid_argument("Numarul de calorii arse nu poate fi negativ!");
         }
@@ -260,8 +237,6 @@ void MyFitnessPal::introducereExercitiu() {
         E.push_back(e);
         nrExercitii++;
     } catch (const invalid_argument &t) {
-        // Prindem excepțiile de tip invalid_argument (sau orice alt tip derivat din std::exception)
-        // Putem face upcasting la std::exception pentru a afișa mesajul de eroare generic
         std::cout << "Eroare: " << t.what() << endl;
     }
 }
