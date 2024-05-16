@@ -3,6 +3,8 @@
 #include <string>
 #include <ostream>
 #include <vector>
+#include "stack"
+#include "queue"
 #include "utilizator.h"
 #include "aliment.h"
 #include "exercitiu.h"
@@ -15,26 +17,19 @@ private:
     double caloriiRamaseDeMancat;
     int nrAlimente;
     int nrExercitii;
-    std::vector<aliment> V;
-    std::vector<exercitiu> E;
+    std::stack<aliment> V;
+    std::queue<exercitiu> E;
 
-    static const int DEFAULT_SIZE = 0;
+    [[maybe_unused]] static const int DEFAULT_SIZE = 0;
 
 public:
     friend class utilizator;
 
     //constructor
-    MyFitnessPal(): user(), nivelActivitate(0), caloriiZilnice(0), caloriiRamaseDeMancat(0), nrAlimente(0), nrExercitii(0), V(DEFAULT_SIZE), E(DEFAULT_SIZE){}//{V = new aliment[nrAlimente];}
+    MyFitnessPal(): user(), nivelActivitate(0), caloriiZilnice(0), caloriiRamaseDeMancat(0), nrAlimente(0), nrExercitii(0){}//{V = new aliment[nrAlimente];}
 
     //constructor prin copiere
-    MyFitnessPal(const MyFitnessPal &a) : user(a.user), nivelActivitate(a.nivelActivitate), caloriiZilnice(a.caloriiZilnice), caloriiRamaseDeMancat(a.caloriiRamaseDeMancat), nrAlimente(a.nrAlimente), nrExercitii(a.nrExercitii), V(a.V.size()), E(a.E.size()){
-        for (int i = 0; i < a.nrAlimente; ++i) {
-            V[i] = a.V[i];
-        }
-        for (int i = 0; i < a.nrExercitii; ++i){
-            E[i] = a.E[i];
-        }
-    }
+    MyFitnessPal(const MyFitnessPal &a) = default;
 
     //introducere utilizator
     void introducereUtilizator();

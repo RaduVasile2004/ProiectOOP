@@ -170,7 +170,7 @@ void MyFitnessPal::introducereAliment() {
             std::cout << "Felicitari pentru alegere!\n";
         else
             std::cout << "Aveti grija, alimentul e cam nesanatos!\n";
-        V.push_back(a);
+        V.push(a);
         nrAlimente++;
     } catch (const invalid_argument &e) {
         std::cout << "Eroare: " << e.what() << endl;
@@ -180,10 +180,30 @@ void MyFitnessPal::introducereAliment() {
 void MyFitnessPal::nrCaloriiRamase() {
     float calMancate = 0;
     float calArse = 0;
-    for (int i = 0; i < nrAlimente; i++)
-        calMancate += V[i].getCalorii();
-    for (int i = 0; i < nrExercitii; i++)
-        calArse += E[i].getCaloriiArse();
+//    for (int i = 0; i < nrAlimente; i++)
+//        calMancate += V[i].getCalorii();
+    std::stack<aliment> tempStack = V;
+
+    // Iterăm prin copia temporară a stivei
+    while (!tempStack.empty()) {
+        // Obținem elementul din vârful stivei temporare
+        aliment a = tempStack.top();
+        // Adăugăm numărul de calorii al alimentului la totalul caloriilor mâncate
+        calMancate += a.getCalorii();
+        // Eliminăm elementul din vârful stivei temporare
+        tempStack.pop();
+    }
+    std::queue<exercitiu> tempQueue = E;
+
+    // Iterăm prin copia temporară a cozii
+    while (!tempQueue.empty()) {
+        // Obținem exercițiul din fața cozii temporare
+        exercitiu ex = tempQueue.front();
+        // Adăugăm numărul de calorii arse de exercițiu la totalul caloriilor arse
+        calArse += ex.getCaloriiArse();
+        // Eliminăm exercițiul din fața cozii temporare
+        tempQueue.pop();
+    }
     caloriiRamaseDeMancat = caloriiZilnice - calMancate + calArse;
     cout << "Mai trebuie sa mancati " << caloriiRamaseDeMancat << " calorii azi\n";
 }
@@ -201,7 +221,7 @@ void MyFitnessPal::introducereExercitiu() {
             throw invalid_argument("Numarul de calorii arse nu poate fi negativ!");
         }
 
-        E.push_back(e);
+        E.push(e);
         nrExercitii++;
     } catch (const invalid_argument &t) {
         std::cout << "Eroare: " << t.what() << endl;
@@ -215,15 +235,28 @@ void MyFitnessPal::afisareDetaliiEntitati() const {
     entitateUtilizator->afisareDetalii();
 
     cout << "Alimente consumate:\n";
-    for (const auto& aliment : V) {
+    // Creăm o copie temporară a stivei V pentru a nu o modifica
+    std::stack<aliment> tempStack = V;
+
+    // Iterăm prin copia temporară a stivei
+    while (!tempStack.empty()) {
+        // Obținem elementul din vârful stivei temporare
+        const aliment& aliment = tempStack.top();
         const entitate* entitateAliment = &aliment;
         entitateAliment->afisareDetalii();
+        // Eliminăm elementul din vârful stivei temporare
+        tempStack.pop();
     }
 
     cout << "Exercitii efectuate:\n";
-    for (const auto& exercitiu : E) {
-        const entitate* entitateExercitiu = &exercitiu;
-        entitateExercitiu->afisareDetalii();
+    std::queue<exercitiu> tempQueue = E;
+
+    // Iterăm prin coada temporară
+    while (!tempQueue.empty()) {
+        const exercitiu& ex = tempQueue.front(); // Obținem exercițiul din fața cozii temporare
+        const entitate* entitateExercitiu = &ex;
+        entitateExercitiu->afisareDetalii(); // Afișăm detaliile exercițiului
+        tempQueue.pop(); // Eliminăm exercițiul din fața cozii temporare pentru a avansa la următorul
     }
 }
 
