@@ -1,7 +1,7 @@
 #include "MyFitnessPal.h"
 
 int main() {
-    MyFitnessPal& aplicatie = MyFitnessPal::getInstance();
+    MyFitnessPal aplicatie;
     aplicatie.ecranPrincipal();
     return 0;
 }
