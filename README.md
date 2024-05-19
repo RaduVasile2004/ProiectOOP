@@ -79,7 +79,7 @@ Nerespectarea duce la nepunctarea proiectului
   - [ ] instanțieri cu logică a claselor create
 - STL (2p)
   - [x] utilizarea a două structuri (containere) din (fără vector)
-  - [ ] utilizarea a unui algoritm cu funcție lambda (de exemplu, sort, transform)
+  - [x] utilizarea a unui algoritm cu funcție lambda (de exemplu, sort, transform)
 - Design Patterns (2p)
   - [ ] utilizarea a două șabloane de proiectare
 - Prezentare (4p)

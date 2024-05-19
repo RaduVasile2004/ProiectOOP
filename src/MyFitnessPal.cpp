@@ -1,5 +1,7 @@
 #include <iostream>
+#include <ranges>
 #include <string>
+#include "algorithm"
 #include "MyFitnessPal.h"
 #include "utilizator.h"
 #include "aliment.h"
@@ -180,28 +182,18 @@ void MyFitnessPal::introducereAliment() {
 void MyFitnessPal::nrCaloriiRamase() {
     float calMancate = 0;
     float calArse = 0;
-//    for (int i = 0; i < nrAlimente; i++)
-//        calMancate += V[i].getCalorii();
-    std::stack<aliment> tempStack = V;
 
-    // Iterăm prin copia temporară a stivei
+    std::stack<aliment> tempStack = V;
     while (!tempStack.empty()) {
-        // Obținem elementul din vârful stivei temporare
         aliment a = tempStack.top();
-        // Adăugăm numărul de calorii al alimentului la totalul caloriilor mâncate
         calMancate += a.getCalorii();
-        // Eliminăm elementul din vârful stivei temporare
         tempStack.pop();
     }
-    std::queue<exercitiu> tempQueue = E;
 
-    // Iterăm prin copia temporară a cozii
+    std::queue<exercitiu> tempQueue = E;
     while (!tempQueue.empty()) {
-        // Obținem exercițiul din fața cozii temporare
         exercitiu ex = tempQueue.front();
-        // Adăugăm numărul de calorii arse de exercițiu la totalul caloriilor arse
         calArse += ex.getCaloriiArse();
-        // Eliminăm exercițiul din fața cozii temporare
         tempQueue.pop();
     }
     caloriiRamaseDeMancat = caloriiZilnice - calMancate + calArse;
@@ -228,36 +220,69 @@ void MyFitnessPal::introducereExercitiu() {
     }
 }
 
+void MyFitnessPal::sortAlimente() {
+    std::vector<aliment> alimenteVector;
+    while (!V.empty()) {
+        alimenteVector.push_back(V.top());
+        V.pop();
+    }
 
-void MyFitnessPal::afisareDetaliiEntitati() const {
+    std::sort(alimenteVector.begin(), alimenteVector.end(), [](const aliment &a, const aliment &b) {
+        return a.getNume() < b.getNume();
+    });
+
+    for (auto & i : std::ranges::reverse_view(alimenteVector)) {
+        V.push(i);
+    }
+
+}
+
+void MyFitnessPal::sortExercitii() {
+    std::vector<exercitiu> exercitiiVector;
+    while (!E.empty()) {
+        exercitiiVector.push_back(E.front());
+        E.pop();
+    }
+
+    std::sort(exercitiiVector.begin(), exercitiiVector.end(), [](const exercitiu &a, const exercitiu &b) {
+        return a.getNume() < b.getNume();
+    });
+
+    for (const auto &ex : exercitiiVector) {
+        E.push(ex);
+    }
+
+}
+
+void MyFitnessPal::afisareDetaliiEntitati() {
     cout << "Detalii utilizator:\n";
     const entitate* entitateUtilizator = &user;
     entitateUtilizator->afisareDetalii();
 
+    sortAlimente();
+    sortExercitii();
+
     cout << "Alimente consumate:\n";
-    // Creăm o copie temporară a stivei V pentru a nu o modifica
     std::stack<aliment> tempStack = V;
 
-    // Iterăm prin copia temporară a stivei
     while (!tempStack.empty()) {
-        // Obținem elementul din vârful stivei temporare
         const aliment& aliment = tempStack.top();
         const entitate* entitateAliment = &aliment;
         entitateAliment->afisareDetalii();
-        // Eliminăm elementul din vârful stivei temporare
         tempStack.pop();
     }
 
     cout << "Exercitii efectuate:\n";
     std::queue<exercitiu> tempQueue = E;
 
-    // Iterăm prin coada temporară
     while (!tempQueue.empty()) {
-        const exercitiu& ex = tempQueue.front(); // Obținem exercițiul din fața cozii temporare
+        const exercitiu& ex = tempQueue.front();
         const entitate* entitateExercitiu = &ex;
-        entitateExercitiu->afisareDetalii(); // Afișăm detaliile exercițiului
-        tempQueue.pop(); // Eliminăm exercițiul din fața cozii temporare pentru a avansa la următorul
+        entitateExercitiu->afisareDetalii();
+        tempQueue.pop();
     }
 }
+
+
 
 

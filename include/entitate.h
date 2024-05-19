@@ -1,7 +1,5 @@
 #ifndef OOP_ENTITATE_H
 #define OOP_ENTITATE_H
-#include <utility>
-
 #include "string"
 class entitate {
 protected:

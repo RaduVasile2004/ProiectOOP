@@ -1,7 +1,5 @@
 #ifndef OOP_UTILIZATOR_H
 #define OOP_UTILIZATOR_H
-#include <utility>
-
 #include "string"
 #include "ostream"
 #include "iostream"
