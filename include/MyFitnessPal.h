@@ -21,18 +21,24 @@ private:
     std::queue<exercitiu> E;
 
     [[maybe_unused]] static const int DEFAULT_SIZE = 0;
-    MyFitnessPal(): user(), nivelActivitate(0), caloriiZilnice(0), caloriiRamaseDeMancat(0), nrAlimente(0), nrExercitii(0){}//{V = new aliment[nrAlimente];}
+
+    //MyFitnessPal(): user(), nivelActivitate(0), caloriiZilnice(0), caloriiRamaseDeMancat(0), nrAlimente(0), nrExercitii(0){}//{V = new aliment[nrAlimente];}
 
 
 public:
     friend class utilizator;
 
-    static MyFitnessPal& getInstance() {
-        static MyFitnessPal instance;
-        return instance;
-    }
+//    static MyFitnessPal& getInstance() {
+//        // Se garantează că se crează o singură instanță
+//        static MyFitnessPal instance;
+//        return instance;
+//    }
 
-    MyFitnessPal(const MyFitnessPal &a) = delete;
+    //constructor
+    MyFitnessPal(): user(), nivelActivitate(0), caloriiZilnice(0), caloriiRamaseDeMancat(0), nrAlimente(0), nrExercitii(0){}//{V = new aliment[nrAlimente];}
+
+    //constructor prin copiere
+    MyFitnessPal(const MyFitnessPal &a) = default;
 
     //introducere utilizator
     void introducereUtilizator();
@@ -52,15 +58,25 @@ public:
     //nr calorii ramase de mancat
     void nrCaloriiRamase();
 
+    //supraincarcare =
     MyFitnessPal& operator=(const MyFitnessPal &a) = delete;
+//        if(this != &a)
+//        {
+//            nivelActivitate = a.nivelActivitate;
+//            caloriiZilnice = a.caloriiZilnice;
+//            caloriiRamaseDeMancat = a.caloriiRamaseDeMancat;
+//            nrAlimente = a.nrAlimente;
+//            V = a.V;
+//            user = a.user;
+//            nrExercitii = a.nrExercitii;
+//            E = a.E;
+//        }
+//        return *this;
+//    }
 
     void introducereExercitiu();
 
     void afisareDetaliiEntitati();
-
-    void sortAlimente();
-
-    void sortExercitii();
 
     //destructor
     ~MyFitnessPal();

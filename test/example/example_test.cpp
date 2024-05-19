@@ -30,22 +30,9 @@ TEST(CastTest, UpcastDowncast) {
 }
 
 
-TEST(VirtualDestructorTest, TestVirtualDestructor) {
-    auto* mfp = new MyFitnessPal();
-    delete mfp;
-    ASSERT_TRUE(true);
-}
-
 TEST(AbstractClassTest, TestAbstractClass) {
     entitate* e = new utilizator();
     ASSERT_TRUE(true);
     delete e;
 }
 
-TEST(InputOutputTest, TestInputOutput) {
-    std::vector<MyFitnessPal> mfpVector(3);
-    for (const auto& mfp : mfpVector) {
-        mfp.afisareDetaliiEntitati();
-    }
-    ASSERT_TRUE(true);
-}

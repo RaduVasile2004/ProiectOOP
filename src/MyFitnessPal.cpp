@@ -220,47 +220,12 @@ void MyFitnessPal::introducereExercitiu() {
     }
 }
 
-void MyFitnessPal::sortAlimente() {
-    std::vector<aliment> alimenteVector;
-    while (!V.empty()) {
-        alimenteVector.push_back(V.top());
-        V.pop();
-    }
-
-    std::sort(alimenteVector.begin(), alimenteVector.end(), [](const aliment &a, const aliment &b) {
-        return a.getNume() < b.getNume();
-    });
-
-    for (auto & i : std::ranges::reverse_view(alimenteVector)) {
-        V.push(i);
-    }
-
-}
-
-void MyFitnessPal::sortExercitii() {
-    std::vector<exercitiu> exercitiiVector;
-    while (!E.empty()) {
-        exercitiiVector.push_back(E.front());
-        E.pop();
-    }
-
-    std::sort(exercitiiVector.begin(), exercitiiVector.end(), [](const exercitiu &a, const exercitiu &b) {
-        return a.getNume() < b.getNume();
-    });
-
-    for (const auto &ex : exercitiiVector) {
-        E.push(ex);
-    }
-
-}
 
 void MyFitnessPal::afisareDetaliiEntitati() {
     cout << "Detalii utilizator:\n";
     const entitate* entitateUtilizator = &user;
     entitateUtilizator->afisareDetalii();
 
-    sortAlimente();
-    sortExercitii();
 
     cout << "Alimente consumate:\n";
     std::stack<aliment> tempStack = V;
