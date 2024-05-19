@@ -221,7 +221,7 @@ void MyFitnessPal::introducereExercitiu() {
 }
 
 
-void MyFitnessPal::afisareDetaliiEntitati() {
+void MyFitnessPal::afisareDetaliiEntitati() const{
     cout << "Detalii utilizator:\n";
     const entitate* entitateUtilizator = &user;
     entitateUtilizator->afisareDetalii();
